@@ -1,0 +1,98 @@
+a {
+    text-decoration: none;
+    color: rgb(22, 161, 196)
+}
+
+.shopping-car {
+    width: 1200px;
+    background-color: #fff;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.shopping-car>header {
+    height: 43px;
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #cccccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.shopping-car>h3 {
+    font-size: 23px;
+    padding: 10px;
+}
+
+.shopping-car>main {
+    margin: 20px 0;
+}
+
+.shopping-car>main>div {
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.shopping-car>main>div:hover {
+    background-color: wheat;
+}
+
+.shopping-car>main>div>span:first-of-type {
+    position: relative;
+    left: 15px;
+}
+
+.shopping-car>main>div>span:nth-of-type(2) img {
+    width: 60px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.shopping-car>main>div>span:nth-of-type(2) {
+    width: 300px;
+    display: flex;
+    position: relative;
+}
+
+.shopping-car>footer {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 50px;
+    border-top: 1px solid #cccccc;
+}
+
+.shopping-car>footer>span:first-of-type {
+    position: relative;
+    left: -200px;
+}
+
+.shopping-car>footer>span:first-of-type strong {
+    color: red;
+}
+
+.shopping-car>footer>span:last-of-type {
+    position: relative;
+    left: -130px;
+}
+
+.shopping-car>footer>span:last-of-type strong {
+    color: red;
+    font-size: 20px;
+}
+
+.shopping-car>footer>button {
+    width: 94px;
+    height: 40px;
+    background-color: lightcoral;
+    border: none;
+    color: white;
+    margin-right: 10px;
+}
+
+.shopping-car>footer>button:hover {
+    background-color: seagreen;
+    cursor: pointer;
+}
