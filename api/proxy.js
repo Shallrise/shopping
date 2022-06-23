@@ -1,22 +1,26 @@
 const { createProxyMiddleware } = require('http-proxy-middleware')
+const requests = require('request');
 
 module.exports = (req, res) => {
-    let target = ''
-
-    // 代理目标地址
-    // 这里使用 backend 主要用于区分 vercel serverless 的 api 路径
-    if (req.url.startsWith('/api')) {
-        target = 'http://202.193.53.235:8080'
-            // res.json({ code: 111 });
+    let prefix = "/api"
+    if (!req.url.startsWith(prefix)) {
+        return;
     }
+    let target = "http://202.193.53.235:8080" + req.url.substring(prefix.length);
 
-    // 创建代理对象并转发请求
-    createProxyMiddleware({
-        target,
-        changOrigin: true,
-        pathRewrite: {
-            '^/api': ''
+    var options = {
+        'method': 'GET',
+        'url': target,
+        'headers': {
+            'Notion-Version': res.headers['notion-version'],
+            'Authorization': res.headers['authorization']
         }
-    })(req, res)
+    };
+    request(options, function(error, response) {
+        if (error) throw new Error(error);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.write(response.body);
+        res.end();
+    });
 
 }
