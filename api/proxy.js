@@ -11,12 +11,10 @@ module.exports = (req, res) => {
 
     // 创建代理对象并转发请求
     createProxyMiddleware({
-        target,
-        changeOrigin: true,
-        pathRewrite: {
-            // 通过路径重写，去除请求路径中的 `/backend`
-            // 例如 /backend/user/login 将被转发到 http://backend-api.com/user/login
-            '^/api/': '/'
+        "target": target, //这里填写项目真实的后台接口地址
+        changOrigin: true, //设置允许跨域
+        pathRewrite: { //这个重写不可省略！因为我们真正请求的地址并不含 /api
+            '^/api': ''
         }
     })(req, res)
 }
