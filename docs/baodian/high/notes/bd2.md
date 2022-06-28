@@ -5,7 +5,7 @@
 > #### 安装依赖
 
 ```
-使用 axios发送ajax
+使用 axios发送ajax,mock对axios进行拦截请求
 
   cnpm install axios --save
 
